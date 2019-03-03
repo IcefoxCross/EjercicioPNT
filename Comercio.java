@@ -14,13 +14,17 @@ class Producto {
     public float getPrecio() {
         return precio;
     }
+
+    public String toString() {
+        return "Nombre: "+nombre+" /// Precio: $"+Math.round(precio);
+    }
 }
 
 public class Comercio {
     public static void main(String[] args) {
         Producto[] p = cargarProductos();
 
-        System.out.println(p[0].getNombre());
+        System.out.println(p[0]);
     }
 
     public static Producto[] cargarProductos() {
