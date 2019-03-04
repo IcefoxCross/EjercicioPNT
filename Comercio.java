@@ -16,7 +16,7 @@ class Producto implements Comparable {
     }
 
     public String toString() {
-        return String.format("Nombre: %1s /// Precio: $%2s", nombre,Math.round(precio));
+        return String.format("Nombre: %s /// Precio: $%s", nombre,Math.round(precio));
     }
 
     public int compareTo(Producto p) {
@@ -37,7 +37,7 @@ class Bebida extends Producto {
     }
 
     public String toString() {
-        return String.format("Nombre: %1s /// Litros: %2s /// Precio: $%3s", getNombre(),litros,Math.round(getPrecio()));
+        return String.format("Nombre: %s /// Litros: %s /// Precio: $%s", getNombre(),litros,Math.round(getPrecio()));
     }
 }
 
@@ -54,7 +54,7 @@ class Limpieza extends Producto {
     }
 
     public String toString() {
-        return String.format("Nombre: %1s /// Contenido: %2s /// Precio: $%3s", getNombre(),contenido,Math.round(getPrecio()));
+        return String.format("Nombre: %s /// Contenido: %s /// Precio: $%s", getNombre(),contenido,Math.round(getPrecio()));
     }
 }
 
@@ -71,7 +71,7 @@ class Fresco extends Producto {
     }
 
     public String toString() {
-        return String.format("Nombre: %1s /// Precio: %2s /// Unidad de Venta: $%3s", getNombre(),Math.round(getPrecio()),uVenta);
+        return String.format("Nombre: %1s /// Precio: $%2s /// Unidad de Venta: %3s", getNombre(),Math.round(getPrecio()),uVenta);
     }
 }
 
@@ -79,16 +79,41 @@ public class Comercio {
     public static void main(String[] args) {
         Producto[] p = cargarProductos();
 
-        for (int i=0;i<p.length;i++) {
-            System.out.println(p[i]);
+        for (Producto prod : p) {
+            System.out.println(prod);
         }
+        System.out.println("=============================");
+        System.out.println(String.format("Producto más caro: %1s", maxProducto(p).getNombre()));
+        System.out.println(String.format("Producto más barato: %1s", minProducto(p).getNombre()));
     }
 
     public static Producto[] cargarProductos() {
         Producto[] p = new Producto[]{
             new Bebida("Coca-Cola Zero", 1.5, 20),
             new Bebida("Coca-Cola",1.5,18),
+            new Limpieza("Shampoo Sedal", "500ml", 19),
+            new Fresco("Frutillas", "kilo", 64)
         };
         return p;
+    }
+
+    public static Producto minProducto(Producto[] p) {
+        Producto min = new Producto("Ninguno", Double.MAX_VALUE);
+        for (Producto prod : p) {
+            if (prod.getPrecio() < min.getPrecio()) {
+                min = prod;
+            }
+        }
+        return min;
+    }
+
+    public static Producto maxProducto(Producto[] p) {
+        Producto max = new Producto("Ninguno", 0.0);
+        for (Producto prod : p) {
+            if (prod.getPrecio() > max.getPrecio()) {
+                max = prod;
+            }
+        }
+        return max;
     }
 }
