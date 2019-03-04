@@ -71,7 +71,7 @@ class Fresco extends Producto {
     }
 
     public String toString() {
-        return String.format("Nombre: %1s /// Precio: $%2s /// Unidad de Venta: %3s", getNombre(),Math.round(getPrecio()),uVenta);
+        return String.format("Nombre: %s /// Precio: $%s /// Unidad de Venta: %s", getNombre(),Math.round(getPrecio()),uVenta);
     }
 }
 
@@ -83,8 +83,8 @@ public class Comercio {
             System.out.println(prod);
         }
         System.out.println("=============================");
-        System.out.println(String.format("Producto más caro: %1s", maxProducto(p).getNombre()));
-        System.out.println(String.format("Producto más barato: %1s", minProducto(p).getNombre()));
+        System.out.println(String.format("Producto más caro: %s", maxProducto(p).getNombre()));
+        System.out.println(String.format("Producto más barato: %s", minProducto(p).getNombre()));
     }
 
     public static Producto[] cargarProductos() {
