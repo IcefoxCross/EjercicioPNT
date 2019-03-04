@@ -1,4 +1,4 @@
-class Producto implements Comparable {
+public class Producto implements Comparable<Producto> {
     private String nombre;
     private double precio;
 
@@ -19,6 +19,7 @@ class Producto implements Comparable {
         return String.format("Nombre: %s /// Precio: $%s", nombre,Math.round(precio));
     }
 
+    @Override
     public int compareTo(Producto p) {
         return Double.compare(this.precio, p.precio);
     }
@@ -66,7 +67,7 @@ class Fresco extends Producto {
         uVenta = _uVenta;
     }
 
-    public getUVenta() {
+    public String getUVenta() {
         return uVenta;
     }
 
@@ -83,8 +84,8 @@ public class Comercio {
             System.out.println(prod);
         }
         System.out.println("=============================");
-        System.out.println(String.format("Producto más caro: %s", maxProducto(p).getNombre()));
-        System.out.println(String.format("Producto más barato: %s", minProducto(p).getNombre()));
+        System.out.println(String.format("Producto mas caro: %s", maxProducto(p).getNombre()));
+        System.out.println(String.format("Producto mas barato: %s", minProducto(p).getNombre()));
     }
 
     public static Producto[] cargarProductos() {
