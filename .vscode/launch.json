@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Comercio",
+            "request": "launch",
+            "mainClass": "Comercio",
+            "projectName": "EjercicioPNT_b6ad6a98"
+        }
+    ]
+}

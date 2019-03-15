@@ -2,9 +2,9 @@ public class Producto implements Comparable<Producto> {
     private String nombre;
     private double precio;
 
-    public Producto(String _nombre, double _precio) {
-        nombre = _nombre;
-        precio = _precio;
+    public Producto(String n, double p) {
+        nombre = n;
+        precio = p;
     }
 
     public String getNombre() {
@@ -23,14 +23,22 @@ public class Producto implements Comparable<Producto> {
     public int compareTo(Producto p) {
         return Double.compare(this.precio, p.precio);
     }
+
+    public boolean mayorQue(Producto p) {
+        return this.compareTo(p) == 1;
+    }
+
+    public boolean menorQue(Producto p) {
+        return this.compareTo(p) == -1;
+    }
 }
 
 class Bebida extends Producto {
     private double litros;
 
-    public Bebida(String _nombre, double _litros, double _precio) {
-        super(_nombre, _precio);
-        litros = _litros;
+    public Bebida(String n, double l, double p) {
+        super(n, p);
+        litros = l;
     }
 
     public double getLitros() {
@@ -45,9 +53,9 @@ class Bebida extends Producto {
 class Limpieza extends Producto {
     private String contenido;
 
-    public Limpieza(String _nombre, String _contenido, double _precio) {
-        super(_nombre, _precio);
-        contenido = _contenido;
+    public Limpieza(String n, String c, double p) {
+        super(n, p);
+        contenido = c;
     }
 
     public String getContenido() {
@@ -62,9 +70,9 @@ class Limpieza extends Producto {
 class Fresco extends Producto {
     private String uVenta;
 
-    public Fresco(String _nombre, String _uVenta, double _precio) {
-        super(_nombre, _precio);
-        uVenta = _uVenta;
+    public Fresco(String n, String u, double p) {
+        super(n, p);
+        uVenta = u;
     }
 
     public String getUVenta() {

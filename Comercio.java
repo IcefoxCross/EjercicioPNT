@@ -21,22 +21,22 @@ public class Comercio {
     }
 
     public static Producto minProducto(Producto[] p) {
-        Producto min = new Producto("Ninguno", Double.MAX_VALUE);
+        Producto m = new Producto("Ninguno", Double.MAX_VALUE);
         for (Producto prod : p) {
-            if (prod.getPrecio() < min.getPrecio()) {
-                min = prod;
+            if (prod.getPrecio() < m.getPrecio()) {
+                m = prod;
             }
         }
-        return min;
+        return m;
     }
 
     public static Producto maxProducto(Producto[] p) {
-        Producto max = new Producto("Ninguno", 0.0);
+        Producto m = new Producto("Ninguno", 0.0);
         for (Producto prod : p) {
-            if (prod.getPrecio() > max.getPrecio()) {
-                max = prod;
+            if (prod.mayorQue(m)) {
+                m = prod;
             }
         }
-        return max;
+        return m;
     }
 }
